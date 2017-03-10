@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="30 seconds">
+	
+	<appender name="logfile"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<File>./logs/hahalogback.log</File>
+		<encoder>
+			<pattern>%p\t%d\t%C\t%m%n</pattern>
+		</encoder>
+		<rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+			<minIndex>0</minIndex>
+			<maxIndex>999999</maxIndex>
+			<FileNamePattern>./logs/hahalogback.%i.log</FileNamePattern>
+		</rollingPolicy>
+		<triggeringPolicy
+			class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+			<MaxFileSize>1KB</MaxFileSize>
+		</triggeringPolicy>
+	</appender>
+	<appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<pattern>%p\t%d \t%C\t%m%n</pattern>
+		</encoder>
+	</appender>
+
+	<root level="debug">
+		<appender-ref ref="logfile" />
+		<appender-ref ref="stdout" />
+	</root>
+
+</configuration>

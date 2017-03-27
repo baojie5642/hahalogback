@@ -30,8 +30,7 @@ public class Config implements InitializingBean, DisposableBean {
 	private String warn;
 	@Value("${config.error}")
 	private String error;
-	
-	
+
 	@PostConstruct
 	public void check() {
 
@@ -60,7 +59,6 @@ public class Config implements InitializingBean, DisposableBean {
 	public void setPrintMillis(Integer printMillis) {
 		this.printMillis = printMillis;
 	}
-
 
 	public static int getNormalmmills() {
 		return normalmMills;
